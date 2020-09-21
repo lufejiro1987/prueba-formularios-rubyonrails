@@ -11,7 +11,7 @@
 <h2>que empanada te gustaria ser?</h2>
 
 <form action="<%= foods_empanada_path%>" method="POST">
-    <input typa="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
     <label for="nombre">nombre de la empanada</label>
     <input type="text" name='empanada'>
     <input type="submit" value="guardar">

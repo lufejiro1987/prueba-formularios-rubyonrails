@@ -12,7 +12,4 @@ class FoodsController < ApplicationController
         redirect_to root_path, notice: 'se guardó tu empanada'
     end
 
-    private
-    def food_params
-        params.require[:empanada].permit[:]
 end
