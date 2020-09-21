@@ -1,4 +1,7 @@
 class FoodsController < ApplicationController
+
+    http_basic_authenticate_with name: 'felipe', password: 'mei2016', only: [:player, :empanada, :result]
+
     def player
         @resultado = Empanada.where('nombre LIKE?',"%#{params[:empanada]}%") if params[:empanada]
     end
