@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
     def player
+        @resultado = Empanada.where('nombre LIKE?',"%#{params[:empanada]}%") if params[:empanada]
     end
     def result
         @nombre = params[:nombre]

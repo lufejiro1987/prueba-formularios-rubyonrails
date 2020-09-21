@@ -1,5 +1,20 @@
 <%#= params %>
 
+<h1>FORMULARIO PARA BUSCAR UNA EMPANADA</h1>
+
+<%= form_tag(foods_player_path, method: 'get') do%>
+    <%= label_tag 'busca tu empanada'%>
+    <%=text_field_tag 'empanada' %>
+    <%= submit_tag 'buscar' %>
+<% end %>
+
+
+<% unless @resultado.nil?%>
+    <% @resultado.each do |res|%>
+        <p><%= res.nombre %></p>
+    <%end%>
+<%end%>
+
 <h1>que tipo de empanada eres?</h1>
 
 <form action="<%= foods_result_path%>" method="GET">
@@ -28,6 +43,17 @@
 
 <%= notice %>
 <br>
+
+<%= form_with(url: foods_result_path, method: :get, local: true) do |f| %>
+    <%= f.label :nombre, 'ingresa tu nombre para saber que empanada eres' %>
+    <%= f.text_field :nombre %>
+    <%=f.submit 'Quiero saber!'%>
+<% end %>
+
+
+<%= notice %>
+<br>
+
 
 <h4>sumas</h4>
 <%= form_tag(foods_player_path, method: 'get') do %>
