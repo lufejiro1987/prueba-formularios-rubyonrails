@@ -3,12 +3,16 @@ class FoodsController < ApplicationController
     end
     def result
         @nombre = params[:nombre]
-        @empanada = [
-            'empanada de pino, un clásico',
-            'empanada con pasas, waaacala',
-            'empanada frita, alto en colesterol',
-            'empanada vegana, 100% animal free',
-            'empanada moderna, sin gluten'
-    ].sample
+        @empanada = Empanada.all.sample
     end
+    def empanada
+        @params = params
+        @empanada = Empanada.new(nombre: params[:empanada])
+        @empanada.save
+        redirect_to root_path, notice: 'se guardó tu empanada'
+    end
+
+    private
+    def food_params
+        params.require[:empanada].permit[:]
 end
