@@ -18,3 +18,24 @@
 </form>
 
 <%= notice %>
+<br>
+
+<%= form_tag ("/foods/empanadas") do %>
+    <%= label_tag 'nombre de la empanada con form tag' %>
+    <% text_field_tag 'empanada', nil, placeholder: 'nombre' %>
+    <% submit_tag 'enviar' %>
+<% end %>
+
+<%= notice %>
+<br>
+
+<h4>sumas</h4>
+<%= form_tag(foods_player_path, method: 'get') do %>
+    <%= text_field_tag 'num1'%><br>
+    <p>+</p>
+    <%= text_field_tag 'num2'%><br>
+    <br>
+    <%= submit_tag 'sumar' %><br>
+<%end%>
+<br>
+<p>El resultado de la suma es <%= params[:num1].to_i + params[:num2].to_i%> </p>

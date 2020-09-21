@@ -6,10 +6,12 @@ class FoodsController < ApplicationController
         @empanada = Empanada.all.sample
     end
     def empanada
-        @params = params
         @empanada = Empanada.new(nombre: params[:empanada])
-        @empanada.save
-        redirect_to root_path, notice: 'se guardó tu empanada'
+        if @empanada.save
+            redirect_to root_path, notice: 'se guardó tu empanada'
+        else
+            redirect_to root_path, notice: 'no se pudo guardar'
+        end
     end
 
 end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'foods/player'
   get 'foods/result'
   post 'foods/empanada'
+  post 'foods/player', to: 'foods#empanada'
 
   root to: 'foods#player'
 end
