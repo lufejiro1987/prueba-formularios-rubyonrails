@@ -1,0 +1,9 @@
+<%#= params %>
+
+<h1>que tipo de empanada eres?</h1>
+
+<form action="<%= foods_result_path%>" method="GET">
+    <label for="nombre">ingresa tu nombre, para saber que empanada eres</label>
+    <input type="text" name='nombre'>
+    <input type="submit" value="quiero saber!">
+</form>
